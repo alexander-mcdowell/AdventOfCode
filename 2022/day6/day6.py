@@ -4,14 +4,14 @@ import time
 # PART 1 #
 ##########
 
-start_time = time.time()
-line = open("input.txt", "r+").read().split("\n")[0]
-for i in range(len(line) - 4):
-    substr = line[i : i + 4]
-    if (len(set(substr)) == 4):
-        print(i + 3)
-        break
-print(time.time() - start_time)
+# start_time = time.time()
+# line = open("input.txt", "r+").read().split("\n")[0]
+# for i in range(len(line) - 4):
+#     substr = line[i : i + 4]
+#     if (len(set(substr)) == 4):
+#         print(i + 3)
+#         break
+# print(time.time() - start_time)
 
 ##########
 # PART 2 #
