@@ -35,6 +35,8 @@ print(len(possible))
 
 import time
 
+start_time = time.time()
+
 data = open("day19in.txt").read().split("\n")
 rules = {}
 for l in data:
@@ -51,12 +53,24 @@ for k in rules:
         rules_rev[x] = k
         if (len(x) > max_replace_len): max_replace_len = len(x)
 
-def reduce(s):
-    global rules_rev, target
-    if (s == 'e'):
-        return 0
+best = -1
+stack = [(target, 0)]
+memoize = {}
 
-    best = 10000000000000000
+while len(stack) != 0:
+    s, steps = stack.pop(-1)
+    if (best != -1 and steps >= best): break
+    if (s in memoize):
+        steps2 = memoize[s]
+        if (steps >= steps2): continue
+        memoize[s] = steps2
+    else: memoize[s] = steps
+
+    if (s == 'e'):
+        if (best == -1 or steps < best):
+            best = steps
+        continue
+
     for i in range(len(s)):
         if (ord(s[i]) >= ord('a')): continue
         for j in range(max_replace_len, 0, -1):
@@ -66,11 +80,7 @@ def reduce(s):
             if (x in rules_rev):
                 t = s[:i] + rules_rev[x] + s[i + j:]
                 if (rules_rev[x] == 'e' and len(t) != 1): continue
-                counter = reduce(t)
-                steps = counter + 1
-                if (steps < best): best = steps
-    return best
+                stack.append((t, steps + 1))
 
-start_time = time.time()
-print(reduce(target))
+print(best)
 print(time.time() - start_time)
