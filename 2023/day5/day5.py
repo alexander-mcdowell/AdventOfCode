@@ -106,11 +106,9 @@ def helper(mode, interval, maps):
             else:
                 intervals2 = [(0, interval[0], i1[0] - 1), (1, i1[0], i1[1]), (0, i1[1] + 1, interval[1])]
                 to_add = []
-                #print(mode, "broken", interval, i1)
                 for x in intervals2:
                     x = (x[0], max(interval[0], x[1]), min(interval[1], x[2]))
                     if (x[1] <= x[2]):
-                        #print("---", x)
                         # Change
                         if (x[0] == 1):
                             val = helper(mode + 1, (x[1] - i1[0] + i2[0], x[2] - i1[0] + i2[0]), maps)
