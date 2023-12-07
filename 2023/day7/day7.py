@@ -1,4 +1,5 @@
 import time
+from functools import cmp_to_key
 
 ##########
 # PART 1 #
@@ -31,6 +32,9 @@ for line in data:
         elif (counts == [1, 2, 2]): groupings[4].append(hand)
         elif (counts == [1, 1, 1, 2]): groupings[5].append(hand)
         else: groupings[6].append(hand)
+    
+# Old method
+"""
 for i in range(7):
     # Insertion sort
     j = 1
@@ -42,6 +46,11 @@ for i in range(7):
             groupings[i][k] = temp
             k -= 1
         j += 1
+"""
+
+# Added after solving
+for i in range(7): groupings[i].sort(key=cmp_to_key(is_stronger))
+
 rank = 1
 total = 0
 for i in range(6, -1, -1):
@@ -107,17 +116,9 @@ for line in data:
                 if (val < best): best = val
     bids[hand] = int(bid)
     groupings[best].append(hand)
-for i in range(7):
-    # Insertion sort
-    j = 1
-    while j < len(groupings[i]):
-        k = j
-        while k != 0 and is_stronger(groupings[i][k], groupings[i][k - 1]) == -1:
-            temp = groupings[i][k - 1]
-            groupings[i][k - 1] = groupings[i][k]
-            groupings[i][k] = temp
-            k -= 1
-        j += 1
+
+for i in range(7): groupings[i].sort(key=cmp_to_key(is_stronger))
+
 rank = 1
 total = 0
 for i in range(6, -1, -1):
