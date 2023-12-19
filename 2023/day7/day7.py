@@ -126,4 +126,4 @@ for i in range(6, -1, -1):
         total += bids[groupings[i][j]] * rank
         rank += 1
 print(total)
-print("Part 1 finished in " + str(time.time() - start_time) + " seconds.")
+print("Part 2 finished in " + str(time.time() - start_time) + " seconds.")
