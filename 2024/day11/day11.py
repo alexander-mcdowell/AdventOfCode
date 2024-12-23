@@ -27,6 +27,10 @@ print("Part 1 finished in " + str(time.time() - start_time) + " seconds.")
 # PART 2 #
 ##########
 
+import math
+import sys
+sys.set_int_max_str_digits(10000)
+
 start_time = time.time()
 f = open("input.txt", 'r')
 state = [int(x) for x in f.read().split("\n")[0].split(" ")]
@@ -44,14 +48,14 @@ for i in range(N):
             if (1 not in new_state): new_state[1] = state[x]
             else: new_state[1] += state[x]
         else:
-            s = str(x)
-            l = len(s)
+            l = int(math.log10(x)) + 1
             if (l % 2 == 0):
-                y = int(s[:l//2])
+                z = pow(10, l//2)
+                y = x % z
                 if (y not in new_state): new_state[y] = state[x]
                 else: new_state[y] += state[x]
                 
-                y = int(s[l//2:])
+                y = x // z
                 if (y not in new_state): new_state[y] = state[x]
                 else: new_state[y] += state[x]
             else:
@@ -60,7 +64,6 @@ for i in range(N):
                 else: new_state[y] += state[x]
     state = new_state
 count = 0
-for x in state:
-    count += state[x]
+for x in state: count += state[x]
 print(count)
 print("Part 2 finished in " + str(time.time() - start_time) + " seconds.")
