@@ -33,14 +33,9 @@ for w in data.split(","):
     x, y = w.split("-")
     for z in range(int(x), int(y)+1):
         s = str(z)
-        k = 2
-        while True:
-            if (k > len(s)): break
-            if len(s)%k!=0:
-                k += 1
-                continue
-            t = s[:len(s)//k]
-            if (s==t*k):
+        for k in range(1, len(s)//2+1):
+            t = s[:k]
+            if (s==t*(len(s)//k)):
                 count += z
                 break
             k += 1

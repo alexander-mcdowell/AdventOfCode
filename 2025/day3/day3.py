@@ -25,6 +25,7 @@ start_time = time.time()
 f = open("input.txt", 'r')
 data = f.read().split("\n")
 total = 0
+k = 12
 for l in data:
     digits = [[] for _ in range(10)]
     for i in range(len(l)): digits[int(l[i])].append(i)
@@ -33,7 +34,7 @@ for l in data:
     count = 0
     best = 0
     last_i = -1
-    for remaining in range(11, -1, -1):
+    for remaining in range(k-1, -1, -1):
         for x in range(9, -1, -1):
             while len(digits[x]) != 0:
                 i = digits[x][-1]
