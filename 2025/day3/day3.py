@@ -1,10 +1,10 @@
-import time
+import timeit
 
 ##########
 # PART 1 #
 ##########
 
-# start_time = time.time()
+# start_time = timeit.default_timer()
 # f = open("input.txt", 'r')
 # data = f.read().split("\n")
 # total = 0
@@ -15,13 +15,13 @@ import time
 #             best = max(best, int(l[i] + l[j]))
 #     total += best
 # print(total)
-# print(time.time() - start_time)
+# print(timeit.default_timer() - start_time)
 
 ##########
 # PART 2 #
 ##########
 
-start_time = time.time()
+start_time = timeit.default_timer()
 f = open("input.txt", 'r')
 data = f.read().split("\n")
 total = 0
@@ -48,4 +48,4 @@ for l in data:
                 break
     total += best
 print(total)
-print(time.time() - start_time)
+print(timeit.default_timer() - start_time)

@@ -1,4 +1,4 @@
-import time
+import timeit
 
 ##########
 # PART 1 #
@@ -29,7 +29,7 @@ import time
 # PART 2 #
 ##########
 
-start_time = time.time()
+start_time = timeit.default_timer()
 f = open("input.txt", 'r')
 data = f.read().split("\n")
 ranges = []
@@ -62,4 +62,4 @@ for i in range(len(ranges)):
         prev = [prev[0], interval[1]]
 
 print(fresh)
-print(time.time() - start_time)
+print(timeit.default_timer() - start_time)

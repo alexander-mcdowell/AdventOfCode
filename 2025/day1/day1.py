@@ -1,10 +1,10 @@
-import time
+import timeit
 
 ##########
 # PART 1 #
 ##########
 
-start_time = time.time()
+start_time = timeit.default_timer()
 f = open("input.txt", 'r')
 data = f.read().split("\n")
 x = 50
@@ -13,7 +13,7 @@ for l in data:
     x = (x + int(l[1:]) * (-1 if l[0]=="L" else 1)) % 100
     if x==0: count += 1
 print(count)
-print(time.time() - start_time)
+print(timeit.default_timer() - start_time)
 
 ##########
 # PART 2 #
@@ -21,7 +21,7 @@ print(time.time() - start_time)
 
 import math
 
-start_time = time.time()
+start_time = timeit.default_timer()
 x = 50
 count = 0
 for l in data:
@@ -34,4 +34,4 @@ for l in data:
     count += k
     x = (x + dx) % 100
 print(count)
-print(time.time() - start_time)
+print(timeit.default_timer() - start_time)

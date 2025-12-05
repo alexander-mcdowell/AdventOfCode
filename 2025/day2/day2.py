@@ -1,10 +1,10 @@
-import time
+import timeit
 
 ##########
 # PART 1 #
 ##########
 
-# start_time = time.time()
+# start_time = timeit.default_timer()
 # f = open("input.txt", 'r')
 # data = f.read().split("\n")
 # count = 0
@@ -19,13 +19,13 @@ import time
 #             if (s==t+t):
 #                 count += z
 # print(count)
-# print(time.time() - start_time)
+# print(timeit.default_timer() - start_time)
 
 ##########
 # PART 2 #
 ##########
 
-start_time = time.time()
+start_time = timeit.default_timer()
 f = open("input.txt", 'r')
 data = f.read()
 count = 0
@@ -40,4 +40,4 @@ for w in data.split(","):
                 break
             k += 1
 print(count)
-print(time.time() - start_time)
+print(timeit.default_timer() - start_time)

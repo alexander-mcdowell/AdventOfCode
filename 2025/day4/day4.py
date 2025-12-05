@@ -1,10 +1,10 @@
-import time
+import timeit
 
 ##########
 # PART 1 #
 ##########
 
-# start_time = time.time()
+# start_time = timeit.default_timer()
 # f = open("input.txt", 'r')
 # data = f.read().split("\n")
 # n, m = len(data), len(data[0])
@@ -22,13 +22,13 @@ import time
 #         if adjacent_rolls<4:
 #             count += 1
 # print(count)
-# print(time.time() - start_time)
+# print(timeit.default_timer() - start_time)
 
 ##########
 # PART 2 #
 ##########
 
-start_time = time.time()
+start_time = timeit.default_timer()
 f = open("input.txt", 'r')
 grid = f.read().split("\n")
 n, m = len(grid), len(grid[0])
@@ -56,4 +56,4 @@ while True:
     if removals == 0: break
     grid = new_grid
 print(count)
-print(time.time() - start_time)
+print(timeit.default_timer() - start_time)
