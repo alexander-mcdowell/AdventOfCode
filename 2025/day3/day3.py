@@ -4,18 +4,18 @@ import timeit
 # PART 1 #
 ##########
 
-# start_time = timeit.default_timer()
-# f = open("input.txt", 'r')
-# data = f.read().split("\n")
-# total = 0
-# for l in data:
-#     best = 0
-#     for i in range(len(l)):
-#         for j in range(i+1, len(l)):
-#             best = max(best, int(l[i] + l[j]))
-#     total += best
-# print(total)
-# print(timeit.default_timer() - start_time)
+start_time = timeit.default_timer()
+f = open("input.txt", 'r')
+data = f.read().split("\n")
+total = 0
+for l in data:
+    best = 0
+    for i in range(len(l)):
+        for j in range(i+1, len(l)):
+            best = max(best, int(l[i] + l[j]))
+    total += best
+print("Part 1:", total)
+print(timeit.default_timer() - start_time)
 
 ##########
 # PART 2 #
@@ -47,5 +47,5 @@ for l in data:
                 last_i = i
                 break
     total += best
-print(total)
+print("Part 2:", total)
 print(timeit.default_timer() - start_time)

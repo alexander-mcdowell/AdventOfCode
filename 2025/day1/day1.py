@@ -12,7 +12,7 @@ count = 0
 for l in data:
     x = (x + int(l[1:]) * (-1 if l[0]=="L" else 1)) % 100
     if x==0: count += 1
-print(count)
+print("Part 1:", count)
 print(timeit.default_timer() - start_time)
 
 ##########
@@ -33,5 +33,5 @@ for l in data:
         if ((x+dx)%100 == 0): count += 1
     count += k
     x = (x + dx) % 100
-print(count)
+print("Part 2:", count)
 print(timeit.default_timer() - start_time)

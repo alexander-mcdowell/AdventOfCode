@@ -4,26 +4,26 @@ import timeit
 # PART 1 #
 ##########
 
-# start_time = time.time()
-# f = open("input.txt", 'r')
-# data = f.read().split("\n")
-# ranges = []
-# queries = False
-# fresh = 0
-# for l in data:
-#     if queries:
-#         x = int(l)
-#         for range in ranges:
-#             if range[0] <= x <= range[1]:
-#                 fresh += 1
-#                 break
-#     else:
-#         if l=="":
-#             ranges = sorted(ranges, key=lambda x: x[0])
-#             queries = True
-#         else: ranges.append([int(x) for x in l.split("-")])
-# print(fresh)
-# print(time.time() - start_time)
+start_time = timeit.timeit()
+f = open("input.txt", 'r')
+data = f.read().split("\n")
+ranges = []
+queries = False
+fresh = 0
+for l in data:
+    if queries:
+        x = int(l)
+        for range in ranges:
+            if range[0] <= x <= range[1]:
+                fresh += 1
+                break
+    else:
+        if l=="":
+            ranges = sorted(ranges, key=lambda x: x[0])
+            queries = True
+        else: ranges.append([int(x) for x in l.split("-")])
+print("Part 1", fresh)
+print(timeit.time() - start_time)
 
 ##########
 # PART 2 #
@@ -61,5 +61,5 @@ for i in range(len(ranges)):
             fresh += interval[1]-interval[0]+1
         prev = [prev[0], interval[1]]
 
-print(fresh)
+print("Part 2:", fresh)
 print(timeit.default_timer() - start_time)
