@@ -4,7 +4,7 @@ import timeit
 # PART 1 #
 ##########
 
-start_time = timeit.timeit()
+start_time = timeit.default_timer()
 f = open("input.txt", 'r')
 data = f.read().split("\n")
 ranges = []
@@ -23,7 +23,7 @@ for l in data:
             queries = True
         else: ranges.append([int(x) for x in l.split("-")])
 print("Part 1", fresh)
-print(timeit.time() - start_time)
+print(timeit.default_timer() - start_time)
 
 ##########
 # PART 2 #
