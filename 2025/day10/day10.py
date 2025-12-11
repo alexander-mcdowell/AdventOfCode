@@ -40,6 +40,38 @@ for l in data:
 print(total_presses)    
 print(timeit.default_timer() - start_time)
 
+# ALTERNATE SOLUTION (LINEAR SOLVER)
+
+# import timeit
+# from scipy.optimize import milp, LinearConstraint
+# import numpy as np
+
+# start_time = timeit.default_timer()
+# f = open("input.txt", 'r')
+# data = f.read().split("\n")
+# total_presses = 0
+# for l in data:
+#     split_data = l.split(" ")
+#     target = np.asarray([0 if c=="." else 1 for c in split_data[0][1:-1]])
+#     num_buttons = len(split_data)-2
+#     button_matrix = np.zeros((len(target), num_buttons + len(target)))
+    
+#     for i in range(1, len(split_data)-1):
+#         for x in split_data[i][1:-1].split(","):
+#             button_matrix[int(x)][i-1] = 1
+#     for i in range(len(target)):
+#         button_matrix[i][num_buttons + i] = -2
+#     button_matrix = np.asarray(button_matrix)
+
+#     c = np.asarray([1 for _ in range(num_buttons)] + [0 for _ in range(len(target))])
+#     constraint = LinearConstraint(button_matrix, target, target)
+    
+#     result = milp(c, integrality=1, constraints=constraint)
+#     total_presses += round(result.fun)
+
+# print(total_presses)    
+# print(timeit.default_timer() - start_time)
+
 ##########
 # PART 2 #
 ##########
